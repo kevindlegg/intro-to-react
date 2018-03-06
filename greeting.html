@@ -12,18 +12,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
     <script type="text/babel">
-        class Greeting extends React.Component { 
+        class Welcome extends React.Component { 
             render() { 
                 return (
-                    <div>
-                        <h1>Hello World!</h1>
-                    </div>
+                    <header>
+                        <h1>Hello, {this.props.name}.</h1>
+                        <h3>How are you doing?</h3>
+                        <h3>Today is {this.props.date}</h3>
+                    </header>
                 ); 
             }
         }
 
+        const element = <Welcome name="Kevin Legg" date="January 1st" />;
         ReactDOM.render(
-            <Greeting />, document.getElementById('app')
+            element, document.getElementById('app')
         );
     </script>
 </body>
