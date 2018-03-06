@@ -22,19 +22,34 @@
          }
        }
  
-        class Welcome extends React.Component { 
+        class Welcome extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    color: "red"
+                }
+            } 
             render() { 
                 return (
-                    <div>
-                        <h2>Hello, {this.props.name}.</h2>
+                    <header>
+                        <h2>{this.props.greeting}{this.props.name}!</h2>
                         <h3>How are you doing?</h3>
-                        <h3>Today is {this.props.date}</h3>
-                    </div>
+                        <h3 style={{color:this.state.color}}>Today is {this.props.date}</h3>
+                    </header>
                 ); 
             }
         }
 
-        const element = <Welcome name="Kevin Legg" date="January 1st" />;
+        const info = {
+            name: "Kevin Legg",
+            date: "January 1st"
+        }
+
+        Welcome.defaultProps = {
+            greeting: "Hello, "
+        }
+
+        const element = <Welcome name={info.name} date={info.date} />;
         ReactDOM.render(
             <div>
             <Greeting />
